@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  shopping-cart:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    command: sh -c "ln -sf ../node_modules node_modules && npm run dev:start"

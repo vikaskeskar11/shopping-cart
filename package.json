@@ -1,0 +1,33 @@
+{
+  "name": "shopping-cart",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev:start": "nodemon --inspect=0.0.0.0:9229 -L ./bin/www",
+    "create:config": "docker-compose -f deploy/docker-compose.yml -f deploy/docker-compose.development.yml config > docker-compose.deploy.combine.yml",
+    "predebug:start": "npm run create:config && npm run debug:stop",
+    "debug:build": "npm run create:config && node transformPackageJson.js && docker-compose -f docker-compose.deploy.combine.yml -f docker-compose.yml build",
+    "debug:start": "node transformPackageJson.js && docker-compose -f docker-compose.deploy.combine.yml -f docker-compose.yml up -d --build && docker logs -f shopping-cart_shopping-cart_1",
+    "debug:stop": "docker-compose -f docker-compose.deploy.combine.yml -f docker-compose.yml down"
+  },
+  "dependencies": {
+    "config": "^3.2.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "ejs": "2.6.2",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.1",
+    "morgan": "~1.9.1",
+    "winston": "^3.1.0",
+    "express-winston": "^3.0.0",
+    "winston-mongodb": "5.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "1.19.1"
+  }
+}

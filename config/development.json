@@ -1,0 +1,6 @@
+{
+    "logger": {
+        "logOnConsole": true,
+        "level": "debug"
+    }
+}

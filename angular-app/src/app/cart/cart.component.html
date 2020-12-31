@@ -1,0 +1,34 @@
+<table class="table table-responsive">
+    <tbody *ngIf="appService.cartProducts.length; else noProducts">
+        <tr>
+            <td colspan="3">
+                <a [routerLink]="['/products']">products</a>
+            </td>
+        </tr>
+        <tr *ngFor="let product of appService.cartProducts">
+            <td>
+                {{product.product.name}}
+            </td>
+            <td>
+                {{product.product.price}}
+            </td>
+            <td>
+                Qty: 1
+            </td>
+            <td>
+                <button (click)="removeFromCart(product)" class="btn btn-primary"> <i class="fa fa-trash"></i> </button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                Total
+            </td>
+            <td>
+                {{getCartTotal()}}
+            </td>
+        </tr>
+    </tbody>
+    <ng-template #noProducts>
+        No products in cart, please add from <a [routerLink]="['/products']">products</a>
+    </ng-template>
+</table>

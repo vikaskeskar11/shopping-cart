@@ -1,0 +1,19 @@
+{
+    "server": {
+        "httpPort": 3080
+    },
+    "db": {
+        "host": "mongodb",
+        "auth": {
+            "usernameFile": "mongodb-username",
+            "passwordFile": "mongodb-password"
+        },
+        "name": "shopping-cart",
+        "logs": "logs"
+    },
+    "logger": {
+        "logInDatabase": true,
+        "logOnConsole": false,
+        "level": "info"
+    }
+}

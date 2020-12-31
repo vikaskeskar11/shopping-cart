@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-3" *ngFor="let product of products">
+        <figure>
+            <img height="100%" width="100%" src="assets/images/product.jpg">
+            <figcaption class="text-center">
+                {{product.name}}
+                <br>
+                <button (click)="addToCart(product)" class="btn btn-primary">
+                    Add to cart
+                </button>
+            </figcaption>
+        </figure>
+    </div>
+</div>

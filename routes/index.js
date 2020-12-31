@@ -6,11 +6,19 @@
 var routes = [
   {
     path: '/version',
-    route: require('./api/versionRoute')
+    route: require('./versionRoute')
   },
   {
-    path: '/cart',
+    path: '/healthCheck',
+    route: require('./healthCheckRoutes')
+  },
+  {
+    path: '/api/cart',
     route: require('./api/shoppingCartRoutes')
+  },
+  {
+    path: '/api/products',
+    route: require('./api/productRoutes')
   }
 ]
 

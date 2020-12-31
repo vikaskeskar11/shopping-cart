@@ -30,6 +30,9 @@ mongoose.connection.on('disconnected', function () {
   if (!isConnectedBefore) setTimeout(connect, 5000)
 })
 mongoose.connection.on('connected', function () {
+  if (!isConnectedBefore) {
+    require('../init/init')
+  }
   isConnectedBefore = true
   logger.info('Connection established to MongoDB')
 })
